@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FinalProject</string>
+    <string name="app1">Charging Station Finder</string>
+    <string name="app2">Recipe search</string>
+    <string name="app3">News search</string>
+    <string name="app4">Foreign currency conversion</string>
+
+</resources>
