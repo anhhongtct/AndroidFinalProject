@@ -8,26 +8,13 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/find_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Charging Station Finder"
-       />
-
+        android:text="@string/findButton"/>
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/add_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Recipe search" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="News search" />
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Foreign currency conversion" />
+        android:text="@string/addButton" />
 </LinearLayout>

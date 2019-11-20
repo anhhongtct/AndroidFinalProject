@@ -7,14 +7,34 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/findText"
+        />
+
+    <EditText
+        android:id="@+id/lat_text"
+        android:hint="@string/latText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+      />
+
+    <EditText
+        android:id="@+id/long_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/longText" />
+
+    <EditText
+        android:id="@+id/country_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/countryCode" />
     <Button
         android:id="@+id/find_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/findButton"/>
-    <Button
-        android:id="@+id/add_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/addButton" />
+        android:text="@string/findBtn" />
+
 </LinearLayout>

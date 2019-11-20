@@ -1,4 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/icon1"
+        android:icon="@drawable/icons8_bank"
+        android:orderInCategory="100"
+        android:title="icon1"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/icon2"
+        android:icon="@drawable/icons_food"
+        android:orderInCategory="100"
+        android:title="icon2"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/icon3"
+        android:icon="@drawable/icons_news"
+        android:orderInCategory="100"
+        android:title="icon3"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/icon4"
+        android:icon="@drawable/icons_gas"
+        android:orderInCategory="100"
+        android:title="icon4"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/search_item"
+        android:title="Overflow menu"
+        app:showAsAction="never" />
 
 </menu>

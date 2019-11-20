@@ -3,22 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageButton
-        android:id="@+id/sendImg"
-        android:src="@drawable/row_send"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        />
-
-    <TextView android:id="@+id/sendText"
-        android:hint="@string/edit_text"
-        android:inputType="textPersonName"
+    <TextView android:id="@+id/viewText"
         android:layout_alignParentTop="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30dp"
-        android:layout_toLeftOf="@id/sendImg"
         />
+<!--    <Button-->
+<!--        android:id="@+id/detailBtn"-->
+<!--        android:text="View Details"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textSize="30dp"-->
+<!--        />-->
+
 </RelativeLayout>
