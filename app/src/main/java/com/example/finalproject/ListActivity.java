@@ -70,8 +70,8 @@ public class ListActivity extends AppCompatActivity {
         setContentView(R.layout.load_menu);
         Intent previousMess = getIntent();
         lon = URLEncoder.encode(previousMess.getStringExtra("lon"));
-        lat = previousMess.getStringExtra("lat");
-        cou = previousMess.getStringExtra("cou");
+        lat = URLEncoder.encode(previousMess.getStringExtra("lat"));
+        cou = URLEncoder.encode(previousMess.getStringExtra("cou"));
 
         //List view
         theList = findViewById(R.id.theList);
@@ -82,50 +82,52 @@ public class ListActivity extends AppCompatActivity {
         MyNetworkQuery theQuery = new MyNetworkQuery();
         theQuery.execute();
 
-//        boolean isTablet = findViewById(R.id.fragmentLocation) != null; //check if the FrameLayout is loaded
-//
-//        theAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, source);
-//        theList.setAdapter( theAdapter );
-//        theList.setOnItemClickListener( (list, item, position, id) -> {
-//
-//            Bundle dataToPass = new Bundle();
-//            dataToPass.putString(TITLE, chargingList.get(position).getTitle());
-//            dataToPass.putString(LAT, chargingList.get(position).getLatitude());
-//            dataToPass.putString(LON, chargingList.get(position).getLongitude());
-//            dataToPass.putString(TEL, chargingList.get(position).getTelephone());
-////            dataToPass.putInt(ITEM_POSITION, position);
-////            dataToPass.putLong(ITEM_ID, id);
-//
-//            if(isTablet)
-//            {
-//                DetailFragment dFragment = new DetailFragment(); //add a DetailFragment
-//                dFragment.setArguments( dataToPass ); //pass it a bundle for information
-//                dFragment.setTablet(true);  //tell the fragment if it's running on a tablet or not
-//                getSupportFragmentManager()
-//                        .beginTransaction()
-//                        .add(R.id.fragmentLocation, dFragment) //Add the fragment in FrameLayout
-//                        .addToBackStack("AnyName") //make the back button undo the transaction
-//                        .commit(); //actually load the fragment.
-//            }
-//            else //isPhone
-//            {
-//                Intent viewIntent = new Intent(ListActivity.this, DetailActivity.class);
-//                viewIntent.putExtra(TITLE, chargingList.get(position).getTitle());
-//                viewIntent.putExtra(LAT, chargingList.get(position).getLatitude());
-//                viewIntent.putExtra(LON, chargingList.get(position).getLongitude());
-//                viewIntent.putExtra(TEL, chargingList.get(position).getTelephone());
-//                startActivity(viewIntent);
-//            }
-//        });
+        boolean isTablet = findViewById(R.id.fragmentLocation) != null; //check if the FrameLayout is loaded
 
-        theList.setOnItemClickListener((parent, view, position, id) -> {
-            Intent viewIntent = new Intent(ListActivity.this, DetailActivity.class);
-            viewIntent.putExtra(TITLE, chargingList.get(position).getTitle());
-            viewIntent.putExtra(LAT, chargingList.get(position).getLatitude());
-            viewIntent.putExtra(LON, chargingList.get(position).getLongitude());
-            viewIntent.putExtra(TEL, chargingList.get(position).getTelephone());
-            startActivity(viewIntent);
+        theList.setOnItemClickListener( (list, item, position, id) -> {
+
+            String title = chargingList.get(position).getTitle();
+            String latitude = chargingList.get(position).getLatitude();
+            String longitude  = chargingList.get(position).getLongitude();
+            String telephone = chargingList.get(position).getTelephone();
+
+            Bundle dataToPass = new Bundle();
+            dataToPass.putString(TITLE, title);
+            dataToPass.putString(LAT, latitude);
+            dataToPass.putString(LON, longitude);
+            dataToPass.putString(TEL, telephone);
+//            dataToPass.putInt(ITEM_POSITION, position);
+//            dataToPass.putLong(ITEM_ID, id);
+            if(isTablet)
+            {
+                DetailFragment dFragment = new DetailFragment(); //add a DetailFragment
+                dFragment.setArguments(dataToPass); //pass it a bundle for information
+                dFragment.setTablet(true);  //tell the fragment if it's running on a tablet or not
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragmentLocation, dFragment) //Add the fragment in FrameLayout
+                        .addToBackStack("AnyName") //make the back button undo the transaction
+                        .commit(); //actually load the fragment.
+            }
+            else //isPhone
+            {
+                Intent viewIntent = new Intent(ListActivity.this, DetailActivity.class);
+                viewIntent.putExtra(TITLE, title);
+                viewIntent.putExtra(LAT, latitude);
+                viewIntent.putExtra(LON, longitude);
+                viewIntent.putExtra(TEL, telephone);
+                startActivity(viewIntent);
+            }
         });
+
+//        theList.setOnItemClickListener((parent, view, position, id) -> {
+//            Intent viewIntent = new Intent(ListActivity.this, DetailActivity.class);
+//            viewIntent.putExtra(TITLE, chargingList.get(position).getTitle());
+//            viewIntent.putExtra(LAT, chargingList.get(position).getLatitude());
+//            viewIntent.putExtra(LON, chargingList.get(position).getLongitude());
+//            viewIntent.putExtra(TEL, chargingList.get(position).getTelephone());
+//            startActivity(viewIntent);
+//        });
 
 
 //         set the adapter for list view
@@ -147,19 +149,8 @@ public class ListActivity extends AppCompatActivity {
             View thisRow;
             thisRow = getLayoutInflater().inflate(R.layout.list, null);
             TextView sendText = thisRow.findViewById(R.id.viewText);
-//            TextView detailBtn = thisRow.findViewById(R.id.detailBtn);
 
             if(chargingList.size()!=0) sendText.setText(getItem(position).getTitle());
-//            if (sendText != null) {
-////                Toast.makeText(this, "You chose "+ ACTIVITY_NAME,Toast.LENGTH_LONG).show();
-//                    sendText.setOnClickListener(clk -> {
-//                    Intent viewIntent = new Intent(parent.getContext(), DetailActivity.class);
-//                    viewIntent.putExtra("lat", getItem(position).getLatitude());
-//                    viewIntent.putExtra("lon", getItem(position).getLongitude());
-//                    viewIntent.putExtra("tel", getItem(position).getTelephone());
-//                    startActivity(viewIntent);
-//                });
-//            }
             return thisRow;
         }
 
@@ -174,8 +165,8 @@ public class ListActivity extends AppCompatActivity {
         @Override                       //Type 1
         protected String doInBackground(String... strings) {
             String ret = null;
-            String queryURL = "https://api.openchargemap.io/v3/poi/?countrycode=CA&latitude=45.347571&longitude=-75.756140&maxresults=10";
-                //String queryURL = "https://api.openchargemap.io/v3/poi/?countrycode="+cou+"&latitude="+ lat +"&longitude="+lon+"&maxresults=10";
+//            String queryURL = "https://api.openchargemap.io/v3/poi/?countrycode=CA&latitude=45.347571&longitude=-75.756140&maxresults=10";
+            String queryURL = "https://api.openchargemap.io/v3/poi/?countrycode="+cou+"&latitude="+ lat +"&longitude="+lon+"&maxresults=10";
             try {
                 // Connect to the server:
                 URL url = new URL(queryURL);
@@ -194,24 +185,13 @@ public class ListActivity extends AppCompatActivity {
                 String result = sb.toString();
                 //JSONObject jObject = new JSONObject(result);
                 JSONArray jArray = new JSONArray(result);
-                for (int i=0, j = 1; i < jArray.length() && j<100; i++, j+=10) {
+                for (int i=0, j = 0; i < jArray.length() && j<100; i++, j+=10) {
                     JSONObject obj = jArray.getJSONObject(i).getJSONObject("AddressInfo");
-                    ChargingStation temp = new ChargingStation(obj.getString("Title"), obj.getString("Latitude"),obj.getString("Longitude"), obj.getString("ContactTelephone1"));
+                    ChargingStation temp = new ChargingStation(obj);
                     chargingList.add(temp);
                     publishProgress(j);
                    try{Thread.sleep(200);} catch(Exception e) { }
                 }
-
-//                for (int i=0; i < jArray.length(); i++)
-//                    try
-//                {JSONObject anObject = jArray.getJSONObject(i).getJSONObject("AddressInfo");
-//                // Pulling items from the array
-//                    //titleBack[i] = anObject.getString("Title");
-//                    titleArr.add(anObject.getString("Title"));
-//                }
-//                catch (JSONException e) { }
-
-
             } catch (JSONException ex) {
                 ret = "JSON exception";
             } catch (MalformedURLException mfe) {
