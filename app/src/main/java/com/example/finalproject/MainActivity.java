@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu items for use in the action bar
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_toolbar_charge_1, menu);
+        inflater.inflate(R.menu.menu_toolbar_charge_2, menu);
 
         return true;
     }
