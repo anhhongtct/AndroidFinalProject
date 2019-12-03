@@ -25,7 +25,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 
-import static com.example.finalproject.MainCurrencyActivity.APP_TITLE;
 import static com.example.finalproject.MainCurrencyActivity.REQUEST_ADD_CURRENCY;
 
 public class MyCurrencyActivity extends AppCompatActivity {
@@ -42,7 +41,7 @@ public class MyCurrencyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_currency);
-        getSupportActionBar().setTitle(APP_TITLE);
+        getSupportActionBar().setTitle(R.string.app_title);
 
         currencyContainer = (ListView) findViewById(R.id.currencyListAdd);
         adapter = new CurrencyAdapter(this);

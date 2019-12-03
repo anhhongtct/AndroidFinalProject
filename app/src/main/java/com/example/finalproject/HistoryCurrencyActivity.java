@@ -28,8 +28,6 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 
-import static com.example.finalproject.MainCurrencyActivity.APP_TITLE;
-
 public class HistoryCurrencyActivity extends AppCompatActivity {
     public HistoryAdapter adapter;
     private ListView historyContainer;
@@ -39,7 +37,7 @@ public class HistoryCurrencyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_currency);
-        getSupportActionBar().setTitle(APP_TITLE);
+        getSupportActionBar().setTitle(R.string.app_title);
 
         historyContainer = (ListView) findViewById(R.id.historylist);
         adapter = new HistoryAdapter(this);

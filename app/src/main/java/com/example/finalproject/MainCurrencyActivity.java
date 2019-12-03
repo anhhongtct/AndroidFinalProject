@@ -38,7 +38,6 @@ import static com.example.finalproject.MyCurrencyActivity.ITEM_AMOUNT;
 import static com.example.finalproject.MyCurrencyActivity.ITEM_NAME;
 
 public class MainCurrencyActivity extends AppCompatActivity {
-    public static final String APP_TITLE = "Foreign currency conversion";
     public static final int REQUEST_ADD_CURRENCY = 1;
     public static final int REQUEST_HISTORY_CURRENCY = 2;
 
@@ -51,7 +50,9 @@ public class MainCurrencyActivity extends AppCompatActivity {
     MyDatabaseOpenHelper dbOpener = new MyDatabaseOpenHelper(this);
     public SQLiteDatabase db;
 
-    //to save all current currency list
+    /*
+     * to save all current currency list
+     */
     ArrayList<CurrencyItem> currencyList = new ArrayList<CurrencyItem>();
     private String appLatestCurrency ="LatestCurrency";
 
@@ -59,12 +60,11 @@ public class MainCurrencyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_currency);
-        getSupportActionBar().setTitle(APP_TITLE);
+        getSupportActionBar().setTitle(R.string.app_title);
 
         currencyContainer = (ListView) findViewById(R.id.currencylist);
         adapter = new ToCurrencyAdapter(MainCurrencyActivity.this);
 
-        ///////////////////////////////////////////////////////////////////////////////
         //get a database:
         db = dbOpener.getWritableDatabase();
 
@@ -72,18 +72,24 @@ public class MainCurrencyActivity extends AppCompatActivity {
         String [] columns = {MyDatabaseOpenHelper.COL_ID, MyDatabaseOpenHelper.COL_NAME, MyDatabaseOpenHelper.COL_ISFROM};
         Cursor results = db.query(false, MyDatabaseOpenHelper.TABLE_NAME, columns, null, null, null, null, null, null);
 
-        //The database version number
-        //The number of columns in the cursor.
-        //The number of results in the cursor
+        /**
+         * The database version number
+         * The number of columns in the cursor.
+         * The number of results in the cursor
+         */
         Log.i("Cursor Information", "Database Version:" + MyDatabaseOpenHelper.VERSION_NUM + ", Number of Columns:" + results.getColumnCount()
                 + ", Number of Results:" + results.getCount());
 
-        //find the column indices:
+        /**
+         * ind the column indices:
+         */
         int fromColumnIndex = results.getColumnIndex(MyDatabaseOpenHelper.COL_ISFROM);
         int nameColIndex = results.getColumnIndex(MyDatabaseOpenHelper.COL_NAME);
         int idColIndex = results.getColumnIndex(MyDatabaseOpenHelper.COL_ID);
 
-        //iterate over the results, return true if there is a next item:
+        /**
+         * iterate over the results, return true if there is a next item:
+         */
         while(results.moveToNext())
         {
             Boolean isFrom = (results.getInt(fromColumnIndex) == 1);
@@ -99,7 +105,7 @@ public class MainCurrencyActivity extends AppCompatActivity {
                 from.setText(name);
             }
         }
-        //////////////////////////////////////////////////////////////////////////////
+
         currencyContainer.setAdapter(adapter);  // to populate ListView with data call setAdapter()
 
         TextView from = (TextView) findViewById(R.id.fromCurrency);
@@ -144,7 +150,6 @@ public class MainCurrencyActivity extends AppCompatActivity {
 
         });
 
-
         Button addButton = (Button) findViewById(R.id.addcurrency);
         addButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
@@ -152,7 +157,9 @@ public class MainCurrencyActivity extends AppCompatActivity {
             }
         });
 
-        // ListView on item selected listener.
+        /**
+         * ListView on item selected listener.
+         */
         currencyContainer.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
             @Override
@@ -175,7 +182,10 @@ public class MainCurrencyActivity extends AppCompatActivity {
         });
     }
 
-    //move a selected currency to "From Currency"
+    /**
+     * move a selected currency to "From Currency"
+     * @param name
+     */
     private void MoveFromCurrency(String name) {
         //1. update state of current "From Currency", true->false
         long fromId = updateCurrency(fromCurrencyName, false);
@@ -202,16 +212,23 @@ public class MainCurrencyActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
-    //remove a selected currency from "To Currency"
+    /**
+     * remove a selected currency from "To Currency"
+     * @param name
+     */
     private void RemoveCurrency(String name) {
         deleteCurrency(name);
         Toast.makeText(this, "Removed currency [" + name + "] from favorite.", Toast.LENGTH_LONG).show();
     }
 
+    /**
+     *
+     */
     private void ConvertCurrency() {
-        //Get the latest foreign exchange reference rates.
-
-        // to set the progressBar’s visibility to View
+        /*
+         * Get the latest foreign exchange reference rates.
+         * to set the progressBar’s visibility to View
+         */
         ProgressBar loadingImage = (ProgressBar) findViewById(R.id.progressBar);
         loadingImage.setVisibility(ProgressBar.VISIBLE);
 
@@ -237,6 +254,9 @@ public class MainCurrencyActivity extends AppCompatActivity {
         new MainCurrencyActivity.LatestCurrencyQuery(symbols).execute(appLatestCurrency);
     }
 
+    /**
+     *
+     */
     private class LatestCurrencyQuery extends AsyncTask<String, Integer, String> {
         ArrayList<HistoryItem> historyList = new ArrayList<HistoryItem>();
 
@@ -251,8 +271,10 @@ public class MainCurrencyActivity extends AppCompatActivity {
             HttpURLConnection urlConnection = null;
             publishProgress(25);
 
-            //API https://api.exchangeratesapi.io/latest?base=KRW&symbols=USD,CAD,HKD
-            // get the latest currency
+            /**
+             * API https://api.exchangeratesapi.io/latest?base=KRW&symbols=USD,CAD,HKD
+             * get the latest currency
+             */
             String urlString =
                     "https://api.exchangeratesapi.io/latest?base=" + fromCurrencyName + "&symbols=" + symbols;
 
@@ -269,7 +291,9 @@ public class MainCurrencyActivity extends AppCompatActivity {
 
                 InputStream stream = urlConnection.getInputStream();
 
-                // json is UTF-8 by default
+                /**
+                 * json is UTF-8 by default
+                 */
                 BufferedReader readerJson = new BufferedReader(new InputStreamReader(stream, "UTF-8"), 8);
                 StringBuilder sb = new StringBuilder();
                 String line = null;
@@ -325,11 +349,20 @@ public class MainCurrencyActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     *
+     * @param key
+     * @param amount
+     */
     private void UpdateCurrencyAmount(String key, double amount) {
         //update amount in the ArrayList
         adapter.getItem(key).setAmount(amount);
     }
 
+    /**
+     *
+     * @param name
+     */
     private void LoadHistoryCurrency(String name) {
         Intent messageIntent = new Intent(MainCurrencyActivity.this,
                 HistoryCurrencyActivity.class);
@@ -338,6 +371,9 @@ public class MainCurrencyActivity extends AppCompatActivity {
         startActivityForResult(messageIntent, REQUEST_HISTORY_CURRENCY);
     }
 
+    /**
+     *
+     */
     private void LoadCurrencyList() {
         //nothing enter for amount
         EditText fromAmount = (EditText) findViewById(R.id.fromAmount);
@@ -358,6 +394,12 @@ public class MainCurrencyActivity extends AppCompatActivity {
         startActivityForResult(addIntent, REQUEST_ADD_CURRENCY);
     }
 
+    /**
+     *
+     * @param isFrom
+     * @param name
+     * @return
+     */
     private long InsertCurrency(boolean isFrom, String name) {
         //add to the database and get the new ID
         ContentValues newRowValues = new ContentValues();

@@ -78,13 +78,13 @@ public class CurrencyAdapter  extends BaseAdapter {
     }
 }
 
-class SortbyName implements Comparator<CurrencyItem>
-{
-    // Used for sorting in ascending order of
-    // name
-    public int compare(CurrencyItem a, CurrencyItem b)
+    class SortbyName implements Comparator<CurrencyItem>
     {
-        return a.getName().compareTo(b.getName());
+        // Used for sorting in ascending order of
+        // name
+        public int compare(CurrencyItem a, CurrencyItem b)
+        {
+            return a.getName().compareTo(b.getName());
+        }
     }
-}
 
