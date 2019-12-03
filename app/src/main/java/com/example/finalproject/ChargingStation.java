@@ -3,8 +3,17 @@ package com.example.finalproject;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ChargingStation {
+/**
+ * @author: Tran Thi Anh Hong
+ * @version 01
+ * @date 12/2019
+ * This is the base class encapsulate the Charging Sation information
+ */
+public class ChargingStation implements Comparable<ChargingStation> {
 
+    /**
+     *
+     */
     long id;
     String title;
     String latitude;
@@ -28,6 +37,13 @@ public class ChargingStation {
       this.longitude = longitude;
       this.telephone = telephone;
     }
+    public ChargingStation(long id, String title, String latitude, String longitude, String telephone) {
+        this.id = id;
+        this.title = title;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.telephone = telephone;
+    }
     public long getId() {return id; }
 
     public String getTitle() {
@@ -44,4 +60,17 @@ public class ChargingStation {
     public String getTelephone() {
         return this.telephone;
     }
+
+    @Override
+    public int compareTo(ChargingStation chargingStation) {
+        if (getLatitude().compareTo(chargingStation.getLatitude()) ==0 )
+            if (getLongitude().compareTo(chargingStation.getLongitude()) ==0)
+                if (getTitle().compareTo(chargingStation.getTitle()) ==0)
+                    if(getTelephone().compareTo(chargingStation.getTelephone()) == 0)
+                        return 0;
+
+                    return -1;
+    }
+
 }
+

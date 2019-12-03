@@ -4,13 +4,30 @@
     <string name="app2">Recipe search</string>
     <string name="app3">News search</string>
     <string name="app4">Foreign currency conversion</string>
-    <string name="findButton">Find charging station</string>
-    <string name="addButton">Favorite list</string>
-    <string name="findText">Find charging station near here </string>
-    <string name="latText">Latitude </string>
-    <string name="longText">Longitude </string>
+    <string name="findButton_chargeStation">Find charging station</string>
+    <string name="addButton_chargeStation">Favorite list</string>
+    <string name="findText_chargeStation">Find charging station near here </string>
+    <string name="latChargeStation">Latitude: </string>
+    <string name="longChargeStation">Longitude: </string>
+    <string name="contactChargeStation">Contact: </string>
     <string name="countryCode">Country Code</string>
-    <string name="findBtn">Find</string>
+    <string name="findBtn_chargeStation">Find</string>
+    <string name="add_favorite_chargeStation">Add to favorite</string>
+    <string name="google_btn_chargeStation">Show in google map</string>
+    <string name="title_chargeStation">Find</string>
+    <string name="instruct_charge">"
+    From the main menu:\n
+    Click Find Charging Station,\n
+    fill in Latitude and Longitude to search\\n
+    Click Favorite List to go to your favorite\n
+    From the detail menu:\n
+    Select a row to see detail information \n
+    Press 'add to favorite' to saved your favorite\n
+    Press 'show direction' to go to google map\n
+    In favorite list:\n
+    Press 'delete' to remove from favorite\n
+    Press 'show direction' to go to google map\n
+    Author: Hong Tran\n"</string>
 
     <string name="app_title">Foreign currency conversion</string>
     <string name="ConvertButton">Convert</string>

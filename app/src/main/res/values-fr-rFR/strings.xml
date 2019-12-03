@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Projet final</string>
+    <string name="app1">Station de charge</string>
+    <string name="app2">Recherche de recette</string>
+    <string name="app3">Recherche de nouvelles</string>
+    <string name="app4">Conversion de devise étrangère</string>
+    <string name="findButton_chargeStation">Trouver une station de charge</string>
+    <string name="addButton_chargeStation">Liste des favoris</string>
+    <string name="findText_chargeStation">Trouver une station de recharge près d ici</string>
+    <string name="latChargeStation">Latitude: </string>
+    <string name="longChargeStation">Longitude: </string>
+    <string name="contactChargeStation">Contact: </string>
+    <string name="countryCode">Code postal</string>
+    <string name="findBtn_chargeStation">Trouver</string>
+    <string name="add_favorite_chargeStation">Ajouter aux Favoris</string>
+    <string name="google_btn_chargeStation">Montrer sur google map</string>
+    <string name="title_chargeStation">Trouver</string>
+    <string name="instruct_charge">
+   </string>
+</resources>
