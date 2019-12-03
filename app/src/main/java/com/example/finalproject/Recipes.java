@@ -186,12 +186,12 @@ public class Recipes extends AppCompatActivity {
         switch (item.getItemId()) {
 
             case R.id.CarCharger:
-                Intent moveToCar = new Intent (Recipes.this,null);
+                Intent moveToCar = new Intent (Recipes.this,MainMenuChargeStation.class);
                 startActivity(moveToCar);
                 break;
 
             case R.id.Currency:
-                Intent moveToCurrency = new Intent (Recipes.this,null);
+                Intent moveToCurrency = new Intent (Recipes.this,MainCurrencyActivity.class);
                 startActivity(moveToCurrency);
                 break;
 
@@ -201,7 +201,7 @@ public class Recipes extends AppCompatActivity {
                 break;
 
             case R.id.ott:
-                Intent moveToOtt = new Intent (Recipes.this,null);
+                Intent moveToOtt = new Intent (Recipes.this,MainActivity.class);
                 startActivity(moveToOtt);
                 break;
 
