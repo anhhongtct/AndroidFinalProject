@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainCurrencyActivity"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/fromCurrency"
+        android:textSize="30sp"
+        android:gravity="center_vertical"
+        android:text="CAD"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_toEndOf="@+id/fromCurrency"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/fromAmount"
+        android:inputType="numberDecimal"
+        android:hint="@string/enter_amount"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/fromCurrency"
+        android:id="@+id/convert"
+        android:text="@string/convert"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/convert"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:max="100"
+        android:visibility="invisible"
+        />
+
+    <ListView
+        android:id="@+id/currencylist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="#777"
+        android:dividerHeight="1dp"
+        android:layout_below="@+id/progressBar"
+        android:layout_above="@+id/addcurrency"
+        android:listSelector="@android:color/transparent"
+        android:transcriptMode="alwaysScroll"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/addcurrency"
+        android:layout_alignParentBottom="true"
+        android:text="+"/>
+
+</RelativeLayout>
