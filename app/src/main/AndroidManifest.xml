@@ -14,6 +14,9 @@
         <activity android:name=".MyCurrencyActivity"></activity>
         <activity android:name=".HistoryCurrencyActivity" />
         <activity android:name=".MainCurrencyActivity" />
+        <activity android:name=".Recipes"/>
+        <activity android:name=".RecipePhoneDisplay"/>
+        <activity android:name=".RecipeTabletDisplay"/>
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RecipePhoneDisplay">
+
+    <TextView
+        android:id="@+id/recipetitle"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:text="@string/RecipeTitle"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="41dp" />
+
+    <TextView
+        android:id="@+id/recipelink"
+        android:layout_width="401dp"
+        android:layout_height="250dp"
+        android:layout_below="@id/recipetitle"
+        android:text="@string/RecipeLink" />
+
+</RelativeLayout>

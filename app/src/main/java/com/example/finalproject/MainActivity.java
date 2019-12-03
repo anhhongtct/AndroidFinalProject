@@ -56,7 +56,14 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setElevation(0); // or other...
         }
-      
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            Intent recipeIntent = new Intent(MainActivity.this,Recipes.class);
+            startActivity(recipeIntent);
+            }
+        });
         //button listener for news activity
         button4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
