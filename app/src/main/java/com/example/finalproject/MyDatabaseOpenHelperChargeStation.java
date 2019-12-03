@@ -13,7 +13,7 @@ import android.util.Log;
  * This is the Database helper class for app Charging Station
  */
 
-public class MyDatabaseOpenHelper extends SQLiteOpenHelper {
+public class MyDatabaseOpenHelperChargeStation extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "MyDatabaseFile";
     public static final int VERSION_NUM = 1;
     public static final String TABLE_NAME = "ChargingStation";
@@ -24,7 +24,7 @@ public class MyDatabaseOpenHelper extends SQLiteOpenHelper {
     public static final String COL_PHONE= "PhoneNo";
 
 
-    public MyDatabaseOpenHelper(Activity ctx){
+    public MyDatabaseOpenHelperChargeStation(Activity ctx){
         //The factory parameter should be null, unless you know a lot about Database Memory management
         super(ctx, DATABASE_NAME, null, VERSION_NUM );
     }

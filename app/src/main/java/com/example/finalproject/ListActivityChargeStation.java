@@ -45,7 +45,7 @@ import java.net.URLEncoder;
 
 public class ListActivityChargeStation extends AppCompatActivity {
     private static final String ACTIVITY_NAME = "LIST ACTIVITY";
-    private static final String [] COLUMNS = {MyDatabaseOpenHelper.COL_ID, MyDatabaseOpenHelper.COL_LAT, MyDatabaseOpenHelper.COL_LONG, MyDatabaseOpenHelper.COL_NAME, MyDatabaseOpenHelper.COL_PHONE};
+    private static final String [] COLUMNS = {MyDatabaseOpenHelperChargeStation.COL_ID, MyDatabaseOpenHelperChargeStation.COL_LAT, MyDatabaseOpenHelperChargeStation.COL_LONG, MyDatabaseOpenHelperChargeStation.COL_NAME, MyDatabaseOpenHelperChargeStation.COL_PHONE};
 
     String lon;
     String lat;
@@ -56,7 +56,7 @@ public class ListActivityChargeStation extends AppCompatActivity {
     ListView theList;
     ProgressBar bar;
 
-    MyDatabaseOpenHelper opener;
+    MyDatabaseOpenHelperChargeStation opener;
 
     SQLiteDatabase db;
 
@@ -141,9 +141,9 @@ public class ListActivityChargeStation extends AppCompatActivity {
 
     public Cursor runQuery(String[] columns) {
         //query all the results from the database:
-        opener = new MyDatabaseOpenHelper(this);
+        opener = new MyDatabaseOpenHelperChargeStation(this);
         db = opener.getWritableDatabase();
-        Cursor results = db.query(false, MyDatabaseOpenHelper.TABLE_NAME, columns, null, null, null, null, null, null);
+        Cursor results = db.query(false, MyDatabaseOpenHelperChargeStation.TABLE_NAME, columns, null, null, null, null, null, null);
         return results;
     }
 
@@ -155,11 +155,11 @@ public class ListActivityChargeStation extends AppCompatActivity {
         ArrayList <ChargingStation> list = new ArrayList<>();
         Cursor results = runQuery(COLUMNS);
 
-        int latIndex = results.getColumnIndex(MyDatabaseOpenHelper.COL_LAT);
-        int lonIndex = results.getColumnIndex(MyDatabaseOpenHelper.COL_LONG);
-        int nameIndex = results.getColumnIndex(MyDatabaseOpenHelper.COL_NAME);
-        int phoneIndex = results.getColumnIndex(MyDatabaseOpenHelper.COL_PHONE);
-        int idColIndex = results.getColumnIndex(MyDatabaseOpenHelper.COL_ID);
+        int latIndex = results.getColumnIndex(MyDatabaseOpenHelperChargeStation.COL_LAT);
+        int lonIndex = results.getColumnIndex(MyDatabaseOpenHelperChargeStation.COL_LONG);
+        int nameIndex = results.getColumnIndex(MyDatabaseOpenHelperChargeStation.COL_NAME);
+        int phoneIndex = results.getColumnIndex(MyDatabaseOpenHelperChargeStation.COL_PHONE);
+        int idColIndex = results.getColumnIndex(MyDatabaseOpenHelperChargeStation.COL_ID);
 
         //iterate over the results, populate the Arraylist of charge Station
         results.moveToFirst();
@@ -205,11 +205,11 @@ public class ListActivityChargeStation extends AppCompatActivity {
 
     private void writeRow(String lat, String lon, String name, String phoneNo) {
         ContentValues newValues = new ContentValues();
-        newValues.put(MyDatabaseOpenHelper.COL_LAT, lat);
-        newValues.put(MyDatabaseOpenHelper.COL_LONG, lon);
-        newValues.put(MyDatabaseOpenHelper.COL_NAME, name);
-        newValues.put(MyDatabaseOpenHelper.COL_PHONE, phoneNo);
-        long id = db.insert(MyDatabaseOpenHelper.TABLE_NAME, "NullColumnName", newValues);
+        newValues.put(MyDatabaseOpenHelperChargeStation.COL_LAT, lat);
+        newValues.put(MyDatabaseOpenHelperChargeStation.COL_LONG, lon);
+        newValues.put(MyDatabaseOpenHelperChargeStation.COL_NAME, name);
+        newValues.put(MyDatabaseOpenHelperChargeStation.COL_PHONE, phoneNo);
+        long id = db.insert(MyDatabaseOpenHelperChargeStation.TABLE_NAME, "NullColumnName", newValues);
     };
 
     /**
@@ -311,7 +311,7 @@ public class ListActivityChargeStation extends AppCompatActivity {
 
     public void deleteRowId(int index)
     {
-        MyDatabaseOpenHelper db = new MyDatabaseOpenHelper(this);
+        MyDatabaseOpenHelperChargeStation db = new MyDatabaseOpenHelperChargeStation(this);
         db.deleteRow(String.valueOf(chargingList.get(index).getId()));
         chargingList.remove(index);
         myAdapter.notifyDataSetChanged();
