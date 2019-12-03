@@ -38,11 +38,13 @@ public class MainMenuChargeStation extends AppCompatActivity {
         if (tBar != null) {
             setSupportActionBar(tBar);//To display toolbar
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setElevation(0); // or other...
+            getSupportActionBar().setElevation(0);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);// or other...
         }
 
         //Intent to go to Find Menu
         findButton.setOnClickListener(clk -> {
+
             Intent findIntent = new Intent(this, FindChargeStationActivity.class);
             startActivity(findIntent); }
 
@@ -67,20 +69,6 @@ public class MainMenuChargeStation extends AppCompatActivity {
         inflater.inflate(R.menu.menu_toolbar_charge_2, menu);
 
 
-	    /* slide 15 material:
-	    MenuItem searchItem = menu.findItem(R.id.search_item);
-        SearchView sView = (SearchView)searchItem.getActionView();
-        sView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-            }
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }  });
-
-	    */
-
         return true;
     }
 
@@ -89,8 +77,10 @@ public class MainMenuChargeStation extends AppCompatActivity {
         switch (item.getItemId()) {
             //what to do when the menu item is selected:
             case R.id.icon1:
+                startIntent(MainCurrencyActivity.class);
                 break;
             case R.id.icon2:
+                startIntent(Recipes.class);
                 break;
             case R.id.icon3:
                 break;
@@ -100,6 +90,17 @@ public class MainMenuChargeStation extends AppCompatActivity {
             case R.id.search_item:
                 alertExample();
                 break;
+                case android.R.id.home:
+                    // todo: goto back activity from here
+
+                    Intent intent = new Intent(this, MainActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                    finish();
+                    return true;
+
+                default:
+                    return super.onOptionsItemSelected(item);
         }
         return true;
     }

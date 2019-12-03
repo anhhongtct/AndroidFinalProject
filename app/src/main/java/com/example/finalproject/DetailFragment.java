@@ -31,6 +31,10 @@ public class DetailFragment extends Fragment {
     Button addBtn;
     private LinearLayout mRoot;
 
+    /**
+     * set the boolean <code>true</code>  if run on a tablet
+     * @param tablet
+     */
     public void setTablet(boolean tablet) { isTablet = tablet; }
 
     @Override
@@ -119,7 +123,7 @@ public class DetailFragment extends Fragment {
                    parent.deleteRowId(index); //this deletes the item and updates the list
                    //now remove the fragment since you deleted it from the database:
                    // this is the object to be removed, so remove(this):
-                   //parent.getSupportFragmentManager().beginTransaction().remove(DetailFragment.this).commit();
+                   parent.getSupportFragmentManager().beginTransaction().remove(DetailFragment.this).commit();
                }
                //for Phone:
                else //You are only looking at the details, you need to go back to the previous list page

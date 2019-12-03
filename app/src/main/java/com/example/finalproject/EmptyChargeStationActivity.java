@@ -5,6 +5,13 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * @author: Tran Thi Anh Hong
+ * @version 01
+ * @date 12/2019
+ * This class is used by Fragment class as an template for Empty activity
+ */
+
 public class EmptyChargeStationActivity extends AppCompatActivity {
 
     @Override
@@ -24,7 +31,9 @@ public class EmptyChargeStationActivity extends AppCompatActivity {
                 .commit();
     }
 
-
+    /**
+     * method to start to another activity used by snack bar to come back to main menu
+     */
     public void startIntent() {
         Intent intent = new Intent(this, MainMenuChargeStation.class);
         startActivity(intent);

@@ -16,6 +16,17 @@
     <string name="add_favorite_chargeStation">Ajouter aux Favoris</string>
     <string name="google_btn_chargeStation">Montrer sur google map</string>
     <string name="title_chargeStation">Trouver</string>
-    <string name="instruct_charge">
+    <string name="instruct_charge">"Depuis le menu principal:\n
+     Cliquez sur Rechercher une station de charge,\n
+     remplissez Latitude et Longitude pour rechercher\n
+     Cliquez sur Favoris pour accéder à vos favoris\n
+     Dans le menu de détail:\n
+     Sélectionnez une ligne pour voir les informations détaillées\n
+     Appuyez sur 'ajouter aux favoris' pour enregistrer votre favori\n
+     Appuyez sur 'montrer la direction' pour aller à google map \n
+     Dans la liste des favoris:\n
+     Appuyez sur 'supprimer' pour supprimer du favori\n
+     Appuyez sur 'montrer la direction' pour aller à google map\n
+     Auteur: Hong Tran \n"
    </string>
 </resources>

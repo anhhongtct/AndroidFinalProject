@@ -27,6 +27,12 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+/**
+ * @author: Group
+ * @version 01
+ * @date 12/2019
+ * This class the base for the main menu of the app, contain button to go to different apps
+ */
 
 
 public class MainActivity extends AppCompatActivity {
@@ -53,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         tBar = findViewById(R.id.my_toolbar);
         if (tBar != null) {
             setSupportActionBar(tBar);//To display toolbar
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
             getSupportActionBar().setElevation(0); // or other...
         }
 
