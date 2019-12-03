@@ -23,7 +23,10 @@ public class MyDatabaseOpenHelperChargeStation extends SQLiteOpenHelper {
     public static final String COL_NAME= "Name";
     public static final String COL_PHONE= "PhoneNo";
 
-
+    /**
+     * Constructor used to create database
+     * @param ctx
+     */
     public MyDatabaseOpenHelperChargeStation(Activity ctx){
         //The factory parameter should be null, unless you know a lot about Database Memory management
         super(ctx, DATABASE_NAME, null, VERSION_NUM );
@@ -59,6 +62,10 @@ public class MyDatabaseOpenHelperChargeStation extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    /**
+     * Delete a row in a database given the id of the charge station
+     * @param id
+     */
     public void deleteRow(String id) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_NAME, COL_ID + " =? ", new String[] { id });

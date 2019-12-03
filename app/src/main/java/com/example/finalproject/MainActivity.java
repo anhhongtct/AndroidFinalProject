@@ -27,6 +27,12 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+/**
+ * @author: Group
+ * @version 01
+ * @date 12/2019
+ * This class the base for the main menu of the app, contain button to go to different apps
+ */
 
 
 public class MainActivity extends AppCompatActivity {
@@ -75,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu items for use in the action bar
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_toolbar_charge_1, menu);
+        inflater.inflate(R.menu.menu_toolbar_charge_2, menu);
 
         return true;
     }

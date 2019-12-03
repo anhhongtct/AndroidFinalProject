@@ -89,6 +89,7 @@ public class MainMenuChargeStation extends AppCompatActivity {
         switch (item.getItemId()) {
             //what to do when the menu item is selected:
             case R.id.icon1:
+                startIntent(MainCurrencyActivity.class);
                 break;
             case R.id.icon2:
                 break;

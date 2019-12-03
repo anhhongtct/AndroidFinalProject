@@ -14,6 +14,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+/**
+ * @author: Tran Thi Anh Hong
+ * @version 01
+ * @date 12/2019
+ * This class the base class for Find Menu, recieve input from client and send to List Activity to display result
+ */
+
 public class FindChargeStationActivity extends AppCompatActivity {
     private static final String ACTIVITY_NAME = "Find";
     EditText latText;

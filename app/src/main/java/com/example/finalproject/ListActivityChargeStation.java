@@ -101,7 +101,7 @@ public class ListActivityChargeStation extends AppCompatActivity {
             myAdapter.notifyDataSetChanged();
         }
 
-        boolean isTablet = findViewById(R.id.fragmentLocation) != null; //check if the FrameLayout is loaded
+        boolean isTablet = findViewById(R.id.fragmentLocation) != null; //check if the FrameLayout(yes if tablet) is loaded
 
         theList.setOnItemClickListener( (list, item, position, id) -> { //listen to click at a row
 
@@ -138,6 +138,12 @@ public class ListActivityChargeStation extends AppCompatActivity {
         });
 
     }
+
+    /**
+     * Helper function to query the database
+     * @param columns
+     * @return
+     */
 
     public Cursor runQuery(String[] columns) {
         //query all the results from the database:
@@ -176,6 +182,15 @@ public class ListActivityChargeStation extends AppCompatActivity {
 
         return list;
     }
+
+    /**
+     *
+     * @param lat
+     * @param lon
+     * @param name
+     * @param phoneNo
+     * @return
+     */
 
     public boolean writeDatabase (String lat, String lon, String name, String phoneNo) {
         ArrayList <ChargingStation> favList = readDatabase();
