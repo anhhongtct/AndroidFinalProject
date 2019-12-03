@@ -92,7 +92,7 @@ public class Recipes extends AppCompatActivity {
         myToolbar = (Toolbar)findViewById(R.id.toolbarRecipe);
         setSupportActionBar(myToolbar);
 
-        perf = getSharedPreferences("File",MODE_PRIVATE);
+        perf = getSharedPreferences("RecipeFile",MODE_PRIVATE);
         MyDataBaseOpenHelperRecipe dbOpen = new MyDataBaseOpenHelperRecipe(this);
         db = dbOpen.getWritableDatabase();
         String [] columns = {MyDataBaseOpenHelperRecipe.COL_ID,MyDataBaseOpenHelperRecipe.COL_TITLE,MyDataBaseOpenHelperRecipe.COL_URL};
@@ -175,7 +175,7 @@ public class Recipes extends AppCompatActivity {
 
         MenuItem searchItem = menu.findItem(R.id.app_bar_search_recipe);
         final SearchView sView = (SearchView)searchItem.getActionView();
-        sView.setQuery(perf.getString("Query",""),true);
+        sView.setQuery(perf.getString("RecipeQuery",""),true);
         sView.setOnQueryTextListener(new SearchView.OnQueryTextListener()
         {
             @Override public boolean onQueryTextSubmit(String query) {
@@ -183,7 +183,7 @@ public class Recipes extends AppCompatActivity {
                 new RecipeQuery().execute();
                 //myadapter.notifyDataSetChanged();
                 SharedPreferences.Editor edit = perf.edit();
-                edit.putString("Query", sView.getQuery().toString());
+                edit.putString("RecipeQuery", sView.getQuery().toString());
                 edit.commit();
                 menu.findItem(R.id.app_bar_search_recipe).collapseActionView();
                 return true;  }
