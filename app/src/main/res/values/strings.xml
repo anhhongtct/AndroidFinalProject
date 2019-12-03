@@ -4,6 +4,13 @@
     <string name="app2">Recipe search</string>
     <string name="app3">News search</string>
     <string name="app4">Foreign currency conversion</string>
+    <string name="findButton">Find charging station</string>
+    <string name="addButton">Favorite list</string>
+    <string name="findText">Find charging station near here </string>
+    <string name="latText">Latitude </string>
+    <string name="longText">Longitude </string>
+    <string name="countryCode">Country Code</string>
+    <string name="findBtn">Find</string>
 
     <string name="app_title">Foreign currency conversion</string>
     <string name="ConvertButton">Convert</string>

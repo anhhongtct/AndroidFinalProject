@@ -1,38 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/button1"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Charging Station Finder" />
+        android:text="@string/findText"
+        />
 
-    <Button
-        android:id="@+id/button2"
+    <EditText
+        android:id="@+id/lat_text"
+        android:hint="@string/latText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Recipe search" />
+      />
 
-    <Button
-        android:id="@+id/button3"
+    <EditText
+        android:id="@+id/long_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="News search" />
+        android:hint="@string/longText" />
 
-    <Button
-        android:id="@+id/button4"
+    <EditText
+        android:id="@+id/country_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Foreign currency conversion" />
+        android:hint="@string/countryCode" />
+    <Button
+        android:id="@+id/find_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/findBtn" />
 
 </LinearLayout>

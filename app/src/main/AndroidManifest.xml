@@ -15,12 +15,28 @@
         <activity android:name=".HistoryCurrencyActivity" />
         <activity android:name=".MainCurrencyActivity" />
         <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ChargingStation"/>
+        <activity android:name=".FindActivity"/>
+        <activity android:name=".ListActivity"/>
+        <activity android:name=".LoadActivity"/>
+        <activity android:name=".MainMenu"/>
+        <activity android:name=".DetailActivity"/>
+
     </application>
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

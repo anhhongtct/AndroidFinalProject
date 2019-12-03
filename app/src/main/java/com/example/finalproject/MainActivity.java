@@ -1,7 +1,5 @@
 package com.example.finalproject;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,34 +11,52 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Button;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+
 
 public class MainActivity extends AppCompatActivity {
 
-    /*
-    public void convertToEuro(View view){
-        EditText editText = (EditText) findViewById(R.id.edtText);
-        int dollars = Integer.parseInt(editText.getText().toString());
-        int euro = 2000;
-        double result = dollars * euro ;
-        Toast.makeText(MainActivity.this, Double.toString(result), Toast.LENGTH_LONG).show();
-    }
-    */
+    Button button1;
+    Button button2;
+    Button button3;
+    Button button4;
+    Toolbar tBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Button button4 = (Button) findViewById(R.id.button4);
+        button1 = findViewById(R.id.button1);
+        button2 = findViewById(R.id.button2);
+        button3 = findViewById(R.id.button3);
+        button4 = findViewById(R.id.button4);
+      
+      
+        //button listener for charging station
+        button1.setOnClickListener(clk -> startIntent(MainMenu.class));
+        tBar = findViewById(R.id.my_toolbar);
+        if (tBar != null) {
+            setSupportActionBar(tBar);//To display toolbar
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setElevation(0); // or other...
+        }
+      
+        //button listener for news activity
         button4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
 
@@ -50,5 +66,39 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(profileIntent);
             }
         });
+
+      
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_toolbar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            //what to do when the menu item is selected:
+            case R.id.icon1:
+                break;
+            case R.id.icon2:
+                break;
+            case R.id.icon3:
+                break;
+            case R.id.icon4:
+                startIntent(MainMenu.class);
+                break;
+        }
+        return true;
+    }
+
+
+    private void startIntent(Class<?> cls) {
+        Intent intent = new Intent(this, cls);
+        startActivity(intent);
+
     }
 }
