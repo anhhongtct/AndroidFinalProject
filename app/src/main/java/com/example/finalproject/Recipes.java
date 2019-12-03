@@ -28,6 +28,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.SearchView;
@@ -70,6 +71,9 @@ public class Recipes extends AppCompatActivity {
     final Context context = this;
     Cursor results;
     SQLiteDatabase db;
+    ProgressBar progress;
+    Toolbar myToolbar;
+    String searcher;
 
     public static final String ITEM_SELECTED = "ITEM";
     public static final String ITEM_POSITION = "POSITION";
@@ -84,19 +88,22 @@ public class Recipes extends AppCompatActivity {
         setContentView(R.layout.recipe_default_layout);
         list = new ArrayList<>();
         viewList = (ListView)findViewById(R.id.theList);
-
-        Toolbar myToolbar = (Toolbar)findViewById(R.id.toolbarRecipe);
+        progress = (ProgressBar)findViewById(R.id.progressBar);
+        myToolbar = (Toolbar)findViewById(R.id.toolbarRecipe);
         setSupportActionBar(myToolbar);
 
+        perf = getSharedPreferences("File",MODE_PRIVATE);
         MyDataBaseOpenHelperRecipe dbOpen = new MyDataBaseOpenHelperRecipe(this);
         db = dbOpen.getWritableDatabase();
         String [] columns = {MyDataBaseOpenHelperRecipe.COL_ID,MyDataBaseOpenHelperRecipe.COL_TITLE,MyDataBaseOpenHelperRecipe.COL_URL};
         results = db.query(false,MyDataBaseOpenHelperRecipe.TABLE_NAME, columns , null, null, null, null, null,null);
 
+
         int titleIndex= results.getColumnIndex(MyDataBaseOpenHelperRecipe.COL_TITLE);
         int idColIndex = results.getColumnIndex(MyDataBaseOpenHelperRecipe.COL_ID);
         int urlIndex = results.getColumnIndex(MyDataBaseOpenHelperRecipe.COL_URL);
         int picture = results.getColumnIndex(MyDataBaseOpenHelperRecipe.COL_IMAGE);
+        progress.setVisibility(View.VISIBLE);
         viewList.setAdapter(myadapter = new MyListAdapter());
 
         while (results.moveToNext())
@@ -116,11 +123,11 @@ public class Recipes extends AppCompatActivity {
 
             list.add(new Recipe(image,title,url));
 
-            Toast toast = Toast.makeText(getApplicationContext(),"Added Recipe Back",Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER_HORIZONTAL,0,0);
-            toast.show();
         }
         myadapter.notifyDataSetChanged();
+        Toast toast = Toast.makeText(getApplicationContext(),"Added Recipe Back",Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER_HORIZONTAL,0,0);
+        toast.show();
 
         final boolean isTablet = findViewById(R.id.framesRecipe) != null;
         viewList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -165,14 +172,20 @@ public class Recipes extends AppCompatActivity {
         MenuInflater inflate = getMenuInflater();
         inflate.inflate(R.menu.recipemenu,menu);
 
+
         MenuItem searchItem = menu.findItem(R.id.app_bar_search_recipe);
         final SearchView sView = (SearchView)searchItem.getActionView();
+        sView.setQuery(perf.getString("Query",""),true);
         sView.setOnQueryTextListener(new SearchView.OnQueryTextListener()
         {
             @Override public boolean onQueryTextSubmit(String query) {
                 list.clear();
                 new RecipeQuery().execute();
-                myadapter.notifyDataSetChanged();
+                //myadapter.notifyDataSetChanged();
+                SharedPreferences.Editor edit = perf.edit();
+                edit.putString("Query", sView.getQuery().toString());
+                edit.commit();
+                menu.findItem(R.id.app_bar_search_recipe).collapseActionView();
                 return true;  }
             @Override public boolean onQueryTextChange(String newText) {return false;}
         });
@@ -196,7 +209,7 @@ public class Recipes extends AppCompatActivity {
                 break;
 
             case R.id.otherOTopic:
-                Intent moveToitem3 = new Intent (Recipes.this,null);
+                Intent moveToitem3 = new Intent (Recipes.this,NewsMain.class);
                 startActivity(moveToitem3);
                 break;
 
@@ -219,6 +232,7 @@ public class Recipes extends AppCompatActivity {
                 });
 
                 dialog.show();
+                Snackbar.make(myToolbar,"Volia!",Snackbar.LENGTH_SHORT);
         }
         return true;
     }
@@ -308,18 +322,20 @@ public class Recipes extends AppCompatActivity {
             return ret;
         }
 
-        public boolean fileExistance(String fname) {
+            public boolean fileExistance(String fname) {
             return true;
         }
 
         @Override
         protected void onProgressUpdate(Integer... values) {
-
+            progress.setVisibility(View.VISIBLE);
+            progress.setProgress(values[0]);
         }
 
         @Override
         protected void onPostExecute(String s) {
             myadapter.notifyDataSetChanged();
+            progress.setVisibility(View.INVISIBLE);
         }
 
     }

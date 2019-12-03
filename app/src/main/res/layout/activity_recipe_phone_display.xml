@@ -17,6 +17,8 @@
     <TextView
         android:id="@+id/recipelink"
         android:layout_width="401dp"
+        android:autoLink="all"
+        android:clickable="true"
         android:layout_height="250dp"
         android:layout_below="@id/recipetitle"
         android:text="@string/RecipeLink" />

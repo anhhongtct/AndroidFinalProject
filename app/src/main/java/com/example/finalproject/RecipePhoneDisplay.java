@@ -2,10 +2,13 @@ package com.example.finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.android.material.snackbar.Snackbar;
 
 public class RecipePhoneDisplay extends AppCompatActivity {
 
@@ -23,6 +26,7 @@ public class RecipePhoneDisplay extends AppCompatActivity {
 
         TextView url = (TextView)findViewById(R.id.recipelink);
         url.setText(dataToPass.getString(Recipes.ITEM_URL));
+
 
     }
 }
