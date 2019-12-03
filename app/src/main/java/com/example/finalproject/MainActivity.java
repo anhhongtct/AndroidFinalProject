@@ -45,10 +45,11 @@ public class MainActivity extends AppCompatActivity {
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
         button4 = findViewById(R.id.button4);
-      
-      
-        //button listener for charging station
-        button1.setOnClickListener(clk -> startIntent(MainMenu.class));
+
+
+        //Go to Charge Station main menu
+        button1.setOnClickListener(clk -> startIntent(MainMenuChargeStation.class));
+
         tBar = findViewById(R.id.my_toolbar);
         if (tBar != null) {
             setSupportActionBar(tBar);//To display toolbar
@@ -74,7 +75,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu items for use in the action bar
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_toolbar, menu);
+        inflater.inflate(R.menu.menu_toolbar_charge_1, menu);
+
         return true;
     }
 
@@ -89,11 +91,13 @@ public class MainActivity extends AppCompatActivity {
             case R.id.icon3:
                 break;
             case R.id.icon4:
-                startIntent(MainMenu.class);
+                startIntent(MainMenuChargeStation.class);
                 break;
         }
         return true;
     }
+
+
 
 
     private void startIntent(Class<?> cls) {
