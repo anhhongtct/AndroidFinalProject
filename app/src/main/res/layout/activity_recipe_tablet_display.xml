@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RecipeTabletDisplay">
+
+    <TextView
+        android:id="@+id/titleTablet"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="-141dp"
+        android:text="@string/RecipeTitle" />
+
+    <TextView
+        android:id="@+id/hyperTablet"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleTablet"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="-141dp"
+        android:text="@string/RecipeLink" />
+
+</RelativeLayout>

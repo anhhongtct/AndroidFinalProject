@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name = "RecipeTitle">Défaut Titre</string>
+    <string name = "RecipeLink">Défaut lien</string>
+    <string name = "RecipeDefault"> Défaut</string>
+    <string name = "RecipeInformation">Le segment suivant a été créé par Samantha Langlois </string>
+    <string name = "ConfirmRecipe">Ok</string>
+    <string name = "RecipeAbout">À propos de ce segment</string>
+</resources>
