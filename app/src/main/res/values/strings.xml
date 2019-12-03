@@ -12,4 +12,10 @@
     <string name="countryCode">Country Code</string>
     <string name="findBtn">Find</string>
 
+    <string name="app_title">Foreign currency conversion</string>
+    <string name="ConvertButton">Convert</string>
+    <string name="convert">Convert</string>
+    <string name="enter_amount">Enter amount</string>
+    <string name="the_historical_rates_of_30_days">The historical rates of 30 days</string>
+
 </resources>

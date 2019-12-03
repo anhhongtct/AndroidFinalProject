@@ -1,14 +1,33 @@
 package com.example.finalproject;
-
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +45,9 @@ public class MainActivity extends AppCompatActivity {
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
         button4 = findViewById(R.id.button4);
-
+      
+      
+        //button listener for charging station
         button1.setOnClickListener(clk -> startIntent(MainMenu.class));
         tBar = findViewById(R.id.my_toolbar);
         if (tBar != null) {
@@ -34,7 +55,19 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setElevation(0); // or other...
         }
+      
+        //button listener for news activity
+        button4.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
 
+                // Start ProfileActivity.class
+                Intent profileIntent = new Intent(MainActivity.this,
+                        MainCurrencyActivity.class);
+                startActivity(profileIntent);
+            }
+        });
+
+      
     }
 
     @Override
@@ -42,22 +75,6 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu items for use in the action bar
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_toolbar, menu);
-
-
-	    /* slide 15 material:
-	    MenuItem searchItem = menu.findItem(R.id.search_item);
-        SearchView sView = (SearchView)searchItem.getActionView();
-        sView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-            }
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }  });
-
-	    */
-
         return true;
     }
 
@@ -82,5 +99,6 @@ public class MainActivity extends AppCompatActivity {
     private void startIntent(Class<?> cls) {
         Intent intent = new Intent(this, cls);
         startActivity(intent);
+
     }
 }
