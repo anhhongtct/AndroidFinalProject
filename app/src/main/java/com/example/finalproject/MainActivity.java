@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         tBar = findViewById(R.id.my_toolbar);
         if (tBar != null) {
             setSupportActionBar(tBar);//To display toolbar
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
             getSupportActionBar().setElevation(0); // or other...
         }
 

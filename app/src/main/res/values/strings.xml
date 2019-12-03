@@ -14,7 +14,7 @@
     <string name="findBtn_chargeStation">Find</string>
     <string name="add_favorite_chargeStation">Add to favorite</string>
     <string name="google_btn_chargeStation">Show in google map</string>
-    <string name="title_chargeStation">Find</string>
+    <string name="title_chargeStation">Title: </string>
     <string name="instruct_charge">"
     From the main menu:\n
     Click Find Charging Station,\n
