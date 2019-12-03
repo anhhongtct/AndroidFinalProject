@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="50dp"
+    android:background="@drawable/justin"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:background="@color/textColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        />
+<LinearLayout
+    android:layout_alignParentBottom="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="bottom"
+    >
+    <Button
+        android:id="@+id/find_button"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColor"
+        android:layout_gravity="center"
+        android:background="@drawable/transparent_bg_bordered_button"
+        android:text="@string/findButton_chargeStation"/>
+    <Button
+        android:id="@+id/add_button"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/textColor"
+        android:background="@drawable/transparent_bg_bordered_button"
+        android:text="@string/addButton_chargeStation" />
+</LinearLayout>
+</RelativeLayout>
