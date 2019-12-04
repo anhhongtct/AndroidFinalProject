@@ -8,6 +8,12 @@ public class Article implements Serializable {
     private String title;
     private String description;
 
+
+    public Article(String urlToImage, String title,String description) {
+        this.setUrlToImage(urlToImage);
+        this.setTitle(title);
+        this.setDescription(description);
+    }
     public Article() {
         this.setUrlToImage(urlToImage);
         this.setTitle(title);
@@ -15,7 +21,7 @@ public class Article implements Serializable {
     }
 
 
-    public void setUrlToImage(String UrlToImage) {
+    public void setUrlToImage(String urlToImage) {
         this.urlToImage = urlToImage;
     }
 

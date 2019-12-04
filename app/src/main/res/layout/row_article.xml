@@ -41,6 +41,8 @@
                     android:text="Article"
                     android:textColor="@color/titleColor"
                     android:textSize="30sp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     android:textStyle="bold" />
 
             </RelativeLayout>
@@ -53,7 +55,7 @@
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="txt"
-                android:maxLines="3"
+                android:maxLines="2"
                 android:ellipsize="end"/>
 
         </LinearLayout>
