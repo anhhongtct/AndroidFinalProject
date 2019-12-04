@@ -12,4 +12,7 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="NewsTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/cursorColor</item>
+    </style>
 </resources>

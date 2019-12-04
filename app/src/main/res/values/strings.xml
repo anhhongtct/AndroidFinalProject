@@ -12,4 +12,8 @@
     <string name="countryCode">Country Code</string>
     <string name="findBtn">Find</string>
 
+    <string name="search_tv">Search</string>
+    <string name="search_et"> search here</string>
+    <string name="news_tv">Your news</string>
+
 </resources>

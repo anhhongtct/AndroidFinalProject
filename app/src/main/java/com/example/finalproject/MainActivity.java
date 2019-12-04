@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
         button4 = findViewById(R.id.button4);
+        button3.setOnClickListener(clk -> startIntent(NewsMain.class));
 
-        button1.setOnClickListener(clk -> startIntent(MainMenu.class));
         tBar = findViewById(R.id.my_toolbar);
         if (tBar != null) {
             setSupportActionBar(tBar);//To display toolbar
@@ -70,9 +70,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.icon2:
                 break;
             case R.id.icon3:
+                startIntent(NewsMain.class);
                 break;
             case R.id.icon4:
-                startIntent(MainMenu.class);
                 break;
         }
         return true;
