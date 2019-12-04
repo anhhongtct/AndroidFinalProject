@@ -2,11 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.finalproject">
 
+<<<<<<< HEAD
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+=======
+>>>>>>> 4f9f1b182b3f4121affa5efe52976b6cfb36ffdd
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -16,6 +19,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".MyCurrencyActivity"></activity>
+        <activity android:name=".HistoryCurrencyActivity" />
+        <activity android:name=".MainCurrencyActivity" />
+        <activity android:name=".Recipes"/>
+        <activity android:name=".RecipePhoneDisplay"/>
+        <activity android:name=".RecipeTabletDisplay"/>
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -25,9 +34,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".EmptyActivityNews" />
         <activity android:name=".NewsMain" />
         <activity android:name=".NewsList" />
+=======
+        <activity android:name=".ChargingStation"/>
+        <activity android:name=".FindChargeStationActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ListActivityChargeStation"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".MainMenuChargeStation"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".EmptyChargeStationActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".DetailFragment"
+            android:theme="@style/AppTheme.NoActionBar"/>
+>>>>>>> 4f9f1b182b3f4121affa5efe52976b6cfb36ffdd
 
         <meta-data
             android:name="preloaded_fonts"

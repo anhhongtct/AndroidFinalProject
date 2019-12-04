@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FinalProject</string>
+    <string name="app1">Charging Station Finder</string>
+    <string name="app2">Recipe search</string>
+    <string name="app3">News search</string>
+    <string name="app4">Conversion de devise étrangère</string>
+
+    <string name="app_title">Conversion de devise étrangère</string>
+    <string name="ConvertButton">Convertir</string>
+    <string name="convert">Convertir</string>
+    <string name="enter_amount">Entrer le montant</string>
+    <string name="the_historical_rates_of_30_days">Les taux historiques de 30 jours</string>
+</resources>
