@@ -3,14 +3,10 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-<<<<<<< HEAD
-
     <color name="cursorColor">#b1b1b1</color>
     <color name="normalColor">#70000000</color>
     <color name="titleColor">#ffffff</color>
-=======
     <color name="backGround">#1b2a49</color>
     <color name="backGround2">#465881</color>
     <color name="textColor">#c9d1d3</color>
->>>>>>> 4f9f1b182b3f4121affa5efe52976b6cfb36ffdd
 </resources>

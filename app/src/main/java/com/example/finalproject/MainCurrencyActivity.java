@@ -60,7 +60,7 @@ public class MainCurrencyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_currency);
-        getSupportActionBar().setTitle(R.string.app_title);
+//        getSupportActionBar().setTitle(R.string.app_title);
 
         currencyContainer = (ListView) findViewById(R.id.currencylist);
         adapter = new ToCurrencyAdapter(MainCurrencyActivity.this);

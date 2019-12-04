@@ -53,13 +53,8 @@ public class MainActivity extends AppCompatActivity {
         button4 = findViewById(R.id.button4);
         button3.setOnClickListener(clk -> startIntent(NewsMain.class));
 
-<<<<<<< HEAD
-=======
-
         //Go to Charge Station main menu
         button1.setOnClickListener(clk -> startIntent(MainMenuChargeStation.class));
-
->>>>>>> 4f9f1b182b3f4121affa5efe52976b6cfb36ffdd
         tBar = findViewById(R.id.my_toolbar);
         if (tBar != null) {
             setSupportActionBar(tBar);//To display toolbar
@@ -109,10 +104,7 @@ public class MainActivity extends AppCompatActivity {
                 startIntent(NewsMain.class);
                 break;
             case R.id.icon4:
-<<<<<<< HEAD
-=======
                 startIntent(MainMenuChargeStation.class);
->>>>>>> 4f9f1b182b3f4121affa5efe52976b6cfb36ffdd
                 break;
         }
         return true;

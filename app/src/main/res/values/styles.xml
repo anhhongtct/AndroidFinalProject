@@ -8,18 +8,13 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
-<<<<<<< HEAD
     <style name="NewsTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorAccent">@color/cursorColor</item>
     </style>
-=======
     <style name="AppTheme.NoActionBar">
 
     </style>
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
->>>>>>> 4f9f1b182b3f4121affa5efe52976b6cfb36ffdd
 </resources>

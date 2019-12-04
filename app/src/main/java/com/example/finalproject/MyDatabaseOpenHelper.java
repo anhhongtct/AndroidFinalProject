@@ -1,49 +1,12 @@
 package com.example.finalproject;
 
 import android.app.Activity;
-<<<<<<< HEAD
-=======
 import android.content.ContentValues;
->>>>>>> 4f9f1b182b3f4121affa5efe52976b6cfb36ffdd
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 public class MyDatabaseOpenHelper extends SQLiteOpenHelper {
-<<<<<<< HEAD
-    public static final String DATABASE_NAME = "DatabaseFile";
-    public static final int VERSION_NUM = 1;
-    public static final String TABLE_NAME = "Articles";
-    public static final String IMAGE = "image";
-    public static final String TITLE = "title";
-    public static final String DESCRIPTION = "description";
-
-
-    public MyDatabaseOpenHelper(Activity act){
-        super(act, DATABASE_NAME, null, VERSION_NUM);
-    }
-    @Override
-    public void onCreate(SQLiteDatabase db) {
-
-        db.execSQL("CREATE TABLE " + TABLE_NAME + "("
-                + IMAGE +" INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + DESCRIPTION +" TEXT," + TITLE+" INTEGER)");
-    }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-        Log.i("Database upgrade", "Old version:" + oldVersion + " newVersion:" + newVersion);
-
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
-
-        onCreate(db);
-    }
-
-    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion)
-    {
-        Log.i("Database downgrade", "Old version:" + oldVersion + " newVersion:"+newVersion);
-=======
     public static final String DATABASE_NAME = "CurrencyDBFile";
     public static final int VERSION_NUM = 2;
     public static final String TABLE_NAME = "Currency";
@@ -87,7 +50,6 @@ public class MyDatabaseOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.i("Database upgrade", "Old version:" + oldVersion + " newVersion:"+newVersion);
->>>>>>> 4f9f1b182b3f4121affa5efe52976b6cfb36ffdd
 
         //Delete the old table:
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
@@ -96,7 +58,3 @@ public class MyDatabaseOpenHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 4f9f1b182b3f4121affa5efe52976b6cfb36ffdd
